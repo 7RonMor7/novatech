@@ -1,4 +1,4 @@
-import './SocialBar.css';
+import './Socialbar.css';
 
 const redes = [
   {
