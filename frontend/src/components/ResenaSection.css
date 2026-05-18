@@ -1,0 +1,365 @@
+.resena-section {
+  margin-top: 2rem;
+}
+
+/* Header de la sección */
+.resena-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 2rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border-panel);
+}
+
+.resena-icon {
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, var(--blue-600), var(--blue-400));
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 20px;
+}
+
+.resena-title {
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  color: #fff;
+  letter-spacing: -0.5px;
+}
+
+.resena-subtitle {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.resena-badge {
+  margin-left: auto;
+  background: rgba(37, 99, 235, 0.15);
+  border: 1px solid rgba(37, 99, 235, 0.40);
+  color: var(--blue-300);
+  font-size: 11px;
+  font-family: var(--font-mono);
+  padding: 4px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+/* Grid de paneles */
+.resena-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+@media (max-width: 640px) {
+  .resena-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Paneles */
+.resena-panel {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-panel);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+}
+
+.resena-panel--full {
+  grid-column: 1 / -1;
+}
+
+.resena-panel-title {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--blue-400);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.resena-panel-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(37, 99, 235, 0.20);
+}
+
+/* ── Bloque de resumen (promedio + barras) ───────────────── */
+
+.resena-resumen {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.resena-promedio-num {
+  font-family: var(--font-mono);
+  font-size: 3.8rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+  letter-spacing: -2px;
+}
+
+.resena-promedio-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 3px;
+  font-family: var(--font-mono);
+}
+
+/* Estrellas de visualización (solo lectura) */
+.estrellas {
+  display:inline-flex;
+  gap: 3px;
+  margin: 6px 0;
+}
+
+.estrella {
+  font-size: 20px;
+  color: rgba(37, 99, 235, 0.20);
+  transition: color 0.15s;
+}
+
+.estrella--on {
+  color: var(--amber-400);
+}
+
+.estrella--sm {
+  font-size: 15px;
+}
+
+/* Barras de distribución */
+.barra-dist {
+  flex: 1;
+  min-width: 180px;
+}
+
+.barra-fila {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 5px;
+}
+
+.barra-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  min-width: 8px;
+}
+
+.barra-estrella {
+  font-size: 12px;
+  color: var(--amber-400);
+}
+
+.barra-track {
+  flex: 1;
+  height: 7px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+  border: 1px solid var(--border-alt);
+  overflow: hidden;
+}
+
+.barra-fill {
+  height: 100%;
+  background: var(--amber-400);
+  border-radius: 4px;
+  transition: width 0.6s ease;
+}
+
+.barra-pct {
+  font-size: 11px;
+  color: var(--text-ghost);
+  font-family: var(--font-mono);
+  min-width: 28px;
+  text-align: right;
+}
+
+/* ── Selector de estrellas (formulario) ──────────────────── */
+
+.estrellas-picker {
+  display: inline-flex;
+  gap: 6px;
+  margin: 8px 0 4px;
+}
+
+.estrella-pick {
+  font-size: 26px;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.10);
+  transition: color 0.12s, transform 0.12s;
+  user-select: none;
+}
+
+.estrella-pick:hover,
+.estrella-pick--on {
+  color: var(--amber-400);
+}
+
+.estrella-pick:hover {
+  transform: scale(1.15);
+}
+
+.pick-hint {
+  font-size: 11px;
+  color: var(--text-ghost);
+  font-family: var(--font-mono);
+  margin-top: 2px;
+}
+
+/* Select propio (flecha personalizada) */
+.cat-select {
+  width: 100%;
+  background: var(--bg-input);
+  border: 1px solid var(--border-input);
+  border-radius: var(--radius-md);
+  padding: 10px 36px 10px 14px;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 14px;
+  outline: none;
+  appearance: none;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%235b7fa6' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  transition: border-color var(--transition), background var(--transition);
+}
+
+.cat-select:focus {
+  border-color: var(--border-input-f);
+  background-color: var(--bg-input-focus);
+}
+
+.cat-select option {
+  background: var(--bg-panel);
+  color: var(--text-primary);
+}
+
+/* Toast inline (dentro del panel, sin posición fija) */
+.toast-inline {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  font-size: 12px;
+  font-family: var(--font-body);
+  margin-top: 0.75rem;
+}
+
+.toast-inline--success {
+  background: var(--green-bg);
+  border: 1px solid var(--green-border);
+  color: var(--green-400);
+}
+
+.toast-inline--error {
+  background: var(--red-bg);
+  border: 1px solid var(--red-border);
+  color: var(--red-400);
+}
+
+.toast-inline--warn {
+  background: var(--amber-bg);
+  border: 1px solid var(--amber-border);
+  color: var(--amber-400);
+}
+
+.toast-inline .toast-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+}
+
+/* ── Lista de reseñas ────────────────────────────────────── */
+
+.resena-lista {
+  display: flex;
+  flex-direction: column;
+}
+
+.resena-item {
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(37, 99, 235, 0.08);
+}
+
+.resena-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.resena-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 6px;
+  gap: 8px;
+}
+
+.resena-cliente {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.resena-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.3), rgba(96, 165, 250, 0.2));
+  border: 1px solid rgba(37, 99, 235, 0.30);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--blue-300);
+  font-family: var(--font-mono);
+  flex-shrink: 0;
+  margin-right: 5px;
+}
+
+.resena-nombre {
+  font-size: 13px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.resena-fecha {
+  font-size: 11px;
+  color: var(--text-ghost);
+  font-family: var(--font-mono);
+  white-space: nowrap;
+}
+
+.resena-comentario {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-top: 10px;
+  text-align: justify;
+}
+
+.resena-empty {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: var(--text-ghost);
+  font-size: 13px;
+}

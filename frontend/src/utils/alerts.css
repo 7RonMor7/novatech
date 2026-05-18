@@ -1,0 +1,70 @@
+/* ── SweetAlert2 Minimal Theme ─────────────────────────── */
+.swal-minimal-popup {
+  border-radius: 12px !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5) !important;
+  padding: 2rem 2rem 1.5rem !important;
+  max-width: 360px !important;
+}
+
+.swal-minimal-title {
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+  color: #f1f5f9 !important;
+  letter-spacing: 0.01em !important;
+  padding: 0 !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.swal-minimal-html {
+  margin: 0.5rem 0 1.25rem !important;
+  line-height: 1.6 !important;
+}
+
+.swal-minimal-actions {
+  gap: 0.6rem !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.swal-minimal-confirm {
+  background: #ef4444 !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 8px !important;
+  padding: 0.55rem 1.25rem !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.02em !important;
+  transition: background 0.2s, transform 0.15s !important;
+  box-shadow: none !important;
+}
+
+.swal-minimal-confirm:hover {
+  background: #dc2626 !important;
+  transform: translateY(-1px) !important;
+}
+
+.swal-minimal-cancel {
+  background: transparent !important;
+  color: #94a3b8 !important;
+  border: 1px solid rgba(255,255,255,0.12) !important;
+  border-radius: 8px !important;
+  padding: 0.55rem 1.25rem !important;
+  font-size: 0.875rem !important;
+  font-weight: 400 !important;
+  transition: border-color 0.2s, color 0.2s !important;
+  box-shadow: none !important;
+}
+
+.swal-minimal-cancel:hover {
+  border-color: rgba(255,255,255,0.3) !important;
+  color: #f1f5f9 !important;
+}
+
+/* Animaciones */
+.swal-fade-in  { animation: swalIn  0.2s ease both; }
+.swal-fade-out { animation: swalOut 0.15s ease both; }
+
+@keyframes swalIn  { from { opacity: 0; transform: scale(0.96) translateY(8px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+@keyframes swalOut { from { opacity: 1; transform: scale(1); } to { opacity: 0; transform: scale(0.96); } }

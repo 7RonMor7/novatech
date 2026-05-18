@@ -1,0 +1,142 @@
+/* ── SocialBar ───────────────────────────────────────────── */
+
+.social-bar {
+  margin-top: 2.5rem;
+  padding: 1.75rem 1.5rem;
+  background: var(--bg-panel);
+  border: 1px solid var(--border-panel);
+  border-radius: var(--radius-lg);
+}
+
+/* Divisor con texto centrado */
+.social-bar__header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 1.5rem;
+}
+
+.social-bar__line {
+  flex: 1;
+  height: 1px;
+  background: var(--border-panel);
+}
+
+.social-bar__label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Fila de iconos */
+.social-bar__icons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Cada botón de red social */
+.social-btn {
+  position: relative;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-alt);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1),
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.25s ease;
+}
+
+.social-btn:hover {
+  transform: translateY(-4px) scale(1.08);
+  background: rgba(255, 255, 255, 0.07);
+  border-color: var(--icon-color);
+  box-shadow:
+    0 0 0 1px var(--aura-color),
+    0 0 14px 4px var(--aura-color),
+    0 6px 20px rgba(0, 0, 0, 0.35);
+}
+
+.social-btn:active {
+  transform: translateY(-1px) scale(1.02);
+  box-shadow:
+    0 0 0 1px var(--aura-color),
+    0 0 8px 2px var(--aura-color);
+}
+
+/* Logo */
+.social-btn__img {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  transition: filter 0.2s ease;
+  pointer-events: none;
+}
+
+.social-btn:hover .social-btn__img {
+  filter: drop-shadow(0 0 4px var(--aura-color));
+}
+
+/* Tooltip */
+.social-btn__tooltip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  background: var(--bg-panel);
+  border: 1px solid var(--border-panel);
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  z-index: 10;
+}
+
+.social-btn__tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: var(--border-panel);
+}
+
+.social-btn:hover .social-btn__tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+@media (max-width: 480px) {
+  .social-bar__icons {
+    gap: 0.75rem;
+  }
+
+  .social-btn {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+  }
+
+  .social-btn__img {
+    width: 22px;
+    height: 22px;
+  }
+}
