@@ -11,4 +11,4 @@ services:
       - key: SPRING_DATASOURCE_PASSWORD
         sync: false
       - key: SERVER_PORT
-        value: 8080
+        value: 8082
