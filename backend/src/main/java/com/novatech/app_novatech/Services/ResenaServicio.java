@@ -36,9 +36,8 @@ public class ResenaServicio {
                         idCliente, Pago.EstadoPago.APROBADO);
 
         if (!tienePagoAprobado) {
-            throw new ResponseStatusException(
-                    HttpStatus.FORBIDDEN,
-                    "Solo clientes con pagos aprobados pueden dejar reseñas");
+            throw new IllegalArgumentException(
+                "Solo clientes con pagos aprobados pueden dejar reseñas");
         }
 
         Resena resena = new Resena();
