@@ -22,13 +22,13 @@ public class DetallePedido {
     private BigDecimal precioUnitario;
 
     // Relación con Pedido (muchos detalles → un pedido)
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_pedido")
     @JsonIgnoreProperties({"detalles","pago","cliente"})
     private Pedido pedido;
 
     // Relación con Producto (muchos detalles → un producto)
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_producto")
     @JsonIgnoreProperties({"detalles","categoria"})
     private Producto producto;
