@@ -2,7 +2,8 @@ import { useState, useEffect, useCallback, useMemo } from "react";
 import "./Cliente.css";
 import { confirmDelete } from "../utils/alerts";
 
-const API_URL = "http://localhost:8082/clientes";
+// Uso de la variable de entorno de Vite para produccion y desarrollo
+const API_URL = `${import.meta.env.VITE_API_URL}/clientes`;
 
 /* ── Helpers ───────────────────────────────────────────────────── */
 const today = () => new Date().toISOString().split("T")[0];
@@ -209,10 +210,10 @@ export default function Cliente() {
     if (!confirmed) return;
 
     try {
-      const res = await fetch(`${API_URL_PROD}/${id}`, { method: "DELETE" });
+      const res = await fetch(`${API_URL}/${id}`, { method: "DELETE" });
       if (res.ok) {
         showToast(`"${nombre}" eliminado`, "success");
-        loadData();
+        loadClientes();
       } else throw new Error();
     } catch {
       showToast("Error al eliminar. ¿Backend activo?", "error");

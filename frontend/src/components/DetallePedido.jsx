@@ -3,9 +3,9 @@ import "./DetallePedido.css";
 import { confirmDelete } from "../utils/alerts";
 
 /* ── API endpoints ─────────────────────────────────────────────── */
-const API_DETALLES  = "http://localhost:8082/detalles";
-const API_PEDIDOS   = "http://localhost:8082/pedidos";
-const API_PRODUCTOS = "http://localhost:8082/productos";
+const API_DETALLES = `${import.meta.env.VITE_API_URL}/detalles`;
+const API_PEDIDOS = `${import.meta.env.VITE_API_URL}/pedidos`;
+const API_PRODUCTOS = `${import.meta.env.VITE_API_URL}/productos`;
 
 /* ── Constantes de stock (deben coincidir con Producto.java) ───── */
 const STOCK_MINIMO = 4;

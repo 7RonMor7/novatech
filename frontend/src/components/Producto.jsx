@@ -2,8 +2,8 @@ import { useState, useEffect, useCallback, useMemo } from "react";
 import "./Producto.css";
 import { confirmDelete } from "../utils/alerts";
 
-const API_URL_PROD = "http://localhost:8082/productos";
-const API_URL_CAT = "http://localhost:8082/categorias";
+const API_URL_PROD = `${import.meta.env.VITE_API_URL}/productos`;
+const API_URL_CAT = `${import.meta.env.VITE_API_URL}/categorias`;
 
 /* ── Toast helper ──────────────────────────────────────────────── */
 function ToastContainer({ toasts }) {

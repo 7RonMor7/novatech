@@ -3,8 +3,8 @@ import "./Pedido.css";
 import { confirmDelete } from "../utils/alerts";
 
 /* ── API endpoints ─────────────────────────────────────────────── */
-const API_PEDIDOS  = "http://localhost:8082/pedidos";
-const API_CLIENTES = "http://localhost:8082/clientes";
+const API_PEDIDOS  = `${import.meta.env.VITE_API_URL}/pedidos`;
+const API_CLIENTES = `${import.meta.env.VITE_API_URL}/clientes`;
 
 /* ── Enums (mirrors backend EstadoPedido) ──────────────────────── */
 const ESTADOS = ["PENDIENTE", "CONFIRMADO", "ENTREGADO", "CANCELADO"];

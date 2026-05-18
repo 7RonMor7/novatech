@@ -4,7 +4,8 @@ import { confirmDelete } from "../utils/alerts";
 import SearchBar from './SearchBar'
 import './shared.css'
 
-const API_URL = "http://localhost:8082/categorias";
+// Uso de la variable de entorno de Vite para produccion y desarrollo
+const API_URL = `${import.meta.env.VITE_API_URL}/categorias`;
 
 /* ── Toast helper ──────────────────────────────────────────────── */
 function ToastContainer({ toasts }) {
@@ -119,10 +120,10 @@ export default function Categoria() {
     if (!confirmed) return;
 
     try {
-      const res = await fetch(`${API_URL_PROD}/${id}`, { method: "DELETE" });
+      const res = await fetch(`${API_URL}/${id}`, { method: "DELETE" });
       if (res.ok) {
         showToast(`"${nombreCat}" eliminado`, "success");
-        loadData();
+        loadCategorias();
       } else throw new Error();
     } catch {
       showToast("Error al eliminar. ¿Backend activo?", "error");

@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
 import './ResenaSection.css';
 
+// Definimos la URL base usando la variable de entorno de Vite
+const API_BASE_URL = import.meta.env.VITE_API_URL;
+
 function Estrellas({ valor, soloLectura = false, onChange }) {
   const [hover, setHover] = useState(0);
 
@@ -49,8 +52,8 @@ export default function ResenaSection({ clientes = [] }) {
   const cargar = async () => {
     try {
       const [r1, r2] = await Promise.all([
-        fetch('http://localhost:8082/resenas'),
-        fetch('http://localhost:8082/resenas/resumen'),
+        fetch(`${API_BASE_URL}/resenas`),
+        fetch(`${API_BASE_URL}/resenas/resumen`),
       ]);
       if (r1.ok) setResenas(await r1.json());
       if (r2.ok) setResumen(await r2.json());
@@ -66,7 +69,7 @@ export default function ResenaSection({ clientes = [] }) {
     if (!idCliente)         return setMensaje('⚠️ Selecciona tu nombre');
     setEnviando(true);
     try {
-      const res = await fetch('http://localhost:8082/resenas', {
+      const res = await fetch(`${API_BASE_URL}/resenas`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ calificacion, comentario, idCliente: Number(idCliente) }),

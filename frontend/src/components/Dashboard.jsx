@@ -3,6 +3,9 @@ import { useLocation } from 'react-router-dom';
 import ResenaSection from './ResenaSection';
 import SocialBar from './Socialbar';
 
+// Definimos la URL base usando la variable de entorno de Vite
+const API_BASE_URL = import.meta.env.VITE_API_URL;
+
 export default function Dashboard() {
   const location = useLocation();
 
@@ -15,9 +18,9 @@ export default function Dashboard() {
     const fetchDashboardData = async () => {
       try {
         const [resProd, resCat, resCli] = await Promise.all([
-          fetch("http://localhost:8082/productos"),
-          fetch("http://localhost:8082/categorias"),
-          fetch("http://localhost:8082/clientes")
+          fetch(`${API_BASE_URL}/productos`),
+          fetch(`${API_BASE_URL}/categorias`),
+          fetch(`${API_BASE_URL}/clientes`)
         ]);
 
         if (resProd.ok) setProductos(await resProd.json());

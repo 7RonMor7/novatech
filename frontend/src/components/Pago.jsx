@@ -3,8 +3,8 @@ import "./Pago.css";
 import { confirmDelete } from "../utils/alerts";
 
 /* ── API endpoints ─────────────────────────────────────────────── */
-const API_PAGOS   = "http://localhost:8082/pagos";
-const API_PEDIDOS = "http://localhost:8082/pedidos";
+const API_PAGOS   = `${import.meta.env.VITE_API_URL}/pagos`;
+const API_PEDIDOS = `${import.meta.env.VITE_API_URL}/pedidos`;
 
 /* ── Enums (mirrors backend) ───────────────────────────────────── */
 const METODOS_PAGO = [
