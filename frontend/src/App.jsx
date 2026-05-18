@@ -12,6 +12,9 @@ import Pago from './components/Pago.jsx';
 import Pedido from './components/Pedido.jsx';
 import Producto from './components/Producto.jsx';
 
+// Definimos la URL base usando la variable de entorno de Vite
+const API_BASE_URL = import.meta.env.VITE_API_URL;
+
 const navConfig = {
   "/categorias": { color: "#3b82f6", icon: "https://cdn-icons-png.flaticon.com/512/3502/3502688.png" },
   "/productos":  { color: "#10b981", icon: "https://cdn-icons-png.flaticon.com/512/3144/3144456.png" },
@@ -31,9 +34,9 @@ function App() {
     const fetchData = async () => {
       try {
         const [resProd, resCat, resCli] = await Promise.all([
-          fetch("http://localhost:8082/productos"),
-          fetch("http://localhost:8082/categorias"),
-          fetch("http://localhost:8082/clientes")
+          fetch(`${API_BASE_URL}/productos`),
+          fetch(`${API_BASE_URL}/categorias`),
+          fetch(`${API_BASE_URL}/clientes`)
         ]);
         if (resProd.ok) setProductos(await resProd.json());
         if (resCat.ok) setCategorias(await resCat.json());
