@@ -343,7 +343,7 @@ export default function Producto() {
           <input
             className="pro-input"
             type="text"
-            placeholder="Buscar por nombre, descripción o categoría…"
+            placeholder="Buscar por nombre, descripción, precio o categoría…"
             value={buscar}
             onChange={(e) => setBuscar(e.target.value)}
             style={{ marginBottom: "1rem" }}
