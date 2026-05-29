@@ -46,20 +46,33 @@
   position: sticky;
   top: 0;
   z-index: 100;
+  /* Permite scroll horizontal sin mostrar scrollbar */
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;        /* Firefox */
+}
+
+.nav-bar::-webkit-scrollbar {
+  display: none;                /* Chrome / Safari */
 }
 
 .nav-container {
-  max-width: 1200px;
-  margin: 0 auto;
   display: flex;
   justify-content: center;
-  gap: 10px;
-  /*overflow-x: auto; /* Permite scroll horizontal en móviles */
-  padding: 0 10px;
+  gap: 4px;
+  padding: 0 8px;
+  /* Evita que los items se compriman */
+  min-width: max-content;
+  margin: 0 auto;
+  max-width: 1200px;
 }
 
 .nav-item {
-  padding: 15px 25px;
+  padding: 15px 18px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   color: #94a3b8;
   text-decoration: none;
   font-size: 14px;
@@ -70,7 +83,7 @@
 }
 
 .nav-item:hover {
-  color: var(--blue-400);
+  color: var(--hover-color, #60a5fa);
   background: rgba(37, 99, 235, 0.05);
 }
 
@@ -87,13 +100,62 @@
   max-width: 1400px;
   margin: 0 auto;
   width: 100%;
+  box-sizing: border-box;
 }
 
 /* Ajustes Responsive */
 @media (max-width: 768px) {
-  .business-header h1 { font-size: 1.5rem; }
-  .nav-container { justify-content: flex-start; }
-  .nav-item { padding: 12px 15px; font-size: 13px; }
+  .business-header {
+    padding: 1.2rem 4%;
+  }
+ 
+  .business-header h1 {
+    font-size: 1.3rem;
+    letter-spacing: 2px;
+  }
+ 
+  .header-logo {
+    height: 70px;
+  }
+ 
+  /* En móvil la navbar scrollea hacia la derecha */
+  .nav-container {
+    justify-content: flex-start;
+    padding: 0 4px;
+  }
+ 
+  .nav-item {
+    padding: 12px 14px;
+    font-size: 13px;
+  }
+ 
+  /* Ocultar hover card en táctil (no hay hover real) */
+  .nav-hover-card {
+    display: none;
+  }
+ 
+  .content-area {
+    padding: 12px 10px;
+  }
+ 
+  .dashboard-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .business-header h1 {
+    font-size: 1.1rem;
+  }
+ 
+  .header-logo {
+    height: 55px;
+  }
+ 
+  .nav-item {
+    padding: 11px 12px;
+    font-size: 12px;
+  }
 }
 
 .nav-item {
