@@ -59,10 +59,8 @@
 /* ── Shell ───────────────────────────────────────────────── */
 .cat-shell {
   font-family: var(--font-body);
-  background: var(--bg-deep);
-  min-height: 100vh;
-  padding: 2rem 1.5rem;
   color: var(--text-primary);
+  width: 100%;
 }
 
 /* ── Header ──────────────────────────────────────────────── */
@@ -73,6 +71,7 @@
   margin-bottom: 2rem;
   padding-bottom: 1.25rem;
   border-bottom: 1px solid var(--border-panel);
+  flex-wrap: wrap;
 }
 
 .cat-icon {
@@ -136,6 +135,9 @@
   border: 1px solid var(--border-panel);
   border-radius: var(--radius-lg);
   padding: 1.5rem;
+  /* Evita que desborde el contenedor padre */
+  min-width: 0;
+  overflow: hidden;
 }
 
 .cat-panel--alt {
@@ -233,7 +235,6 @@
 .cat-input::placeholder,
 .cat-textarea::placeholder {
   color: var(--text-ghost);
-  /*color: #489bb5;*/
 }
 
 .cat-textarea {
@@ -334,9 +335,16 @@
 }
 
 /* ── Table ───────────────────────────────────────────────── */
+.cat-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
 .cat-table {
   width: 100%;
   border-collapse: collapse;
+  min-width: 400px;
 }
 
 .cat-table th {

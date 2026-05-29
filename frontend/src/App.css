@@ -46,10 +46,16 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  /* Permite scroll horizontal sin mostrar scrollbar */
+}
+
+.nav-scroll-wrapper {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;        /* Firefox */
+  scrollbar-width: none;
+}
+
+.nav-scroll-wrapper::-webkit-scrollbar {
+  display: none;
 }
 
 .nav-bar::-webkit-scrollbar {
@@ -91,16 +97,6 @@
   color: #ffffff;
   border-bottom: 3px solid var(--blue-500);
   background: rgba(37, 99, 235, 0.1);
-}
-
-/* Área de contenido */
-.content-area {
-  flex: 1;
-  padding: 20px;
-  max-width: 1400px;
-  margin: 0 auto;
-  width: 100%;
-  box-sizing: border-box;
 }
 
 /* Ajustes Responsive */
@@ -188,6 +184,7 @@
   border: 1px solid var(--hover-color);
   box-shadow: 0 10px 20px rgba(0,0,0,0.5);
   z-index: 100;
+  pointer-events: none;
 }
 
 .nav-item:hover .nav-hover-card {
@@ -202,6 +199,17 @@
   filter: drop-shadow(0 0 5px var(--hover-color));
 }
 
+/* Área de contenido */
+.content-area {
+  flex: 1;
+  padding: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ── Dashboard grid ────────────────────────────────── */
 .dashboard-grid {
   grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)) !important;
   gap: 20px;
