@@ -62,7 +62,7 @@
   font-family: var(--font-body);
   background: var(--bg-deep);
   min-height: 100vh;
-  padding: 2rem 1.5rem;
+  padding: 0.5rem ;
   color: var(--text-primary);
   width: 100%;
 }
@@ -640,3 +640,11 @@ select.pro-input option {
 
 .btn.edit   { background: #facc15; }
 .btn.delete { background: #ef4444; }
+
+@media (max-width: 768px) {
+  .product-gallery {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    padding: 0.5rem;
+  }
+}

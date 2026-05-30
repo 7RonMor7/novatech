@@ -254,54 +254,56 @@ export default function Categoria() {
             value={buscar}
             onChange={(e) => setBuscar(e.target.value)}
           />
-          <table className="cat-table">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Nombre</th>
-                <th>Descripción</th>
-                <th>Acciones</th>
-              </tr>
-            </thead>
-            <tbody>
-              {loading ? (
+          <div style={{ overflowX: 'auto', WebkitOverflowScrolling: 'touch'}}>
+            <table className="cat-table">
+              <thead>
                 <tr>
-                  <td colSpan={4} className="loading-cell">Cargando categorías...</td>
+                  <th>ID</th>
+                  <th>Nombre</th>
+                  <th>Descripción</th>
+                  <th>Acciones</th>
                 </tr>
-              ) : categorias.length === 0 ? (
-                <tr>
-                  <td colSpan={4}>
-                    <div className="empty-state">No hay categorías registradas aún.</div>
-                  </td>
-                </tr>
-              ) : (
-                filtrados.map((cat) => (
-                  <tr key={cat.idCategoria}>
-                    <td><span className="id-badge">#{cat.idCategoria}</span></td>
-                    <td className="nombre-cell">{cat.nombre}</td>
-                    <td>
-                      <span className="desc-cell" title={cat.descripcion || ""}>
-                        {cat.descripcion || <span style={{ color: "#2d4a6e" }}>—</span>}
-                      </span>
-                    </td>
-                    <td>
-                      <div className="action-cell">
-                        <button className="act-btn act-btn--edit" onClick={() => handleEdit(cat)}>
-                          Editar
-                        </button>
-                        <button
-                          className="act-btn act-btn--delete"
-                          onClick={() => handleDelete(cat.idCategoria, cat.nombre)}
-                        >
-                          Eliminar
-                        </button>
-                      </div>
+              </thead>
+              <tbody>
+                {loading ? (
+                  <tr>
+                    <td colSpan={4} className="loading-cell">Cargando categorías...</td>
+                  </tr>
+                ) : categorias.length === 0 ? (
+                  <tr>
+                    <td colSpan={4}>
+                      <div className="empty-state">No hay categorías registradas aún.</div>
                     </td>
                   </tr>
-                ))
-              )}
-            </tbody>
-          </table>
+                ) : (
+                  filtrados.map((cat) => (
+                    <tr key={cat.idCategoria}>
+                      <td><span className="id-badge">#{cat.idCategoria}</span></td>
+                      <td className="nombre-cell">{cat.nombre}</td>
+                      <td>
+                        <span className="desc-cell" title={cat.descripcion || ""}>
+                          {cat.descripcion || <span style={{ color: "#2d4a6e" }}>—</span>}
+                        </span>
+                      </td>
+                      <td>
+                        <div className="action-cell">
+                          <button className="act-btn act-btn--edit" onClick={() => handleEdit(cat)}>
+                            Editar
+                          </button>
+                          <button
+                            className="act-btn act-btn--delete"
+                            onClick={() => handleDelete(cat.idCategoria, cat.nombre)}
+                          >
+                            Eliminar
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  ))
+                )}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
 

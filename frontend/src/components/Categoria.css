@@ -61,6 +61,7 @@
   font-family: var(--font-body);
   color: var(--text-primary);
   width: 100%;
+  padding: 0.5rem ;
 }
 
 /* ── Header ──────────────────────────────────────────────── */
@@ -71,7 +72,6 @@
   margin-bottom: 2rem;
   padding-bottom: 1.25rem;
   border-bottom: 1px solid var(--border-panel);
-  flex-wrap: wrap;
 }
 
 .cat-icon {
@@ -336,15 +336,19 @@
 
 /* ── Table ───────────────────────────────────────────────── */
 .cat-table-wrapper {
-  width: 100%;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.cat-scroll-wrapper::-webkit-scrollbar {
+  display: none;
 }
 
 .cat-table {
   width: 100%;
   border-collapse: collapse;
-  min-width: 400px;
+  min-width: 500px;
 }
 
 .cat-table th {

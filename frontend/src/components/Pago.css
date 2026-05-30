@@ -62,7 +62,7 @@
   font-family: var(--font-body);
   background: var(--bg-deep);
   min-height: 100vh;
-  padding: 2rem 1.5rem;
+  padding: 0.5rem ;
   color: var(--text-primary);
 }
 
@@ -135,6 +135,9 @@
   border: 1px solid var(--border-panel);
   border-radius: var(--radius-lg);
   padding: 1.5rem;
+  /* Evita que desborde el contenedor padre */
+  min-width: 0;
+  overflow: hidden;
 }
 
 .pago-panel--alt {

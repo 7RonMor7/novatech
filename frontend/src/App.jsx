@@ -59,14 +59,20 @@ function App() {
         </header>
 
         <nav className="nav-bar">
-          <div className="nav-container">
-            <NavLink to="/">Inicio</NavLink>
-            <NavLink to="/categorias">Categorías</NavLink>
-            <NavLink to="/productos">Productos</NavLink>
-            <NavLink to="/clientes">Clientes</NavLink>
-            <NavLink to="/pedidos">Pedidos</NavLink>
-            <NavLink to="/pago">Pago</NavLink>
-            <NavLink to="/detalle-pedido">Detalles</NavLink>
+          <div style={{
+            overflowX: 'auto',
+            WebkitOverflowScrolling: 'touch',
+            scrollbarWidth: 'none',
+          }}>
+            <div className="nav-container">
+              <NavLink to="/">Inicio</NavLink>
+              <NavLink to="/categorias">Categorías</NavLink>
+              <NavLink to="/productos">Productos</NavLink>
+              <NavLink to="/clientes">Clientes</NavLink>
+              <NavLink to="/pedidos">Pedidos</NavLink>
+              <NavLink to="/pago">Pago</NavLink>
+              <NavLink to="/detalle-pedido">Detalles</NavLink>
+            </div>
           </div>
         </nav>
 
@@ -92,11 +98,22 @@ function NavLink({ to, children }) {
   const isActive = location.pathname === to;
   const config = navConfig[to] || { color: "#60a5fa", icon: "" };
 
+  const handleMouseEnter = (e) => {
+    const card = e.currentTarget.querySelector('.nav-hover-card');
+    if (card) {
+      const rect = e.currentTarget.getBoundingClientRect();
+      card.style.top = `${rect.bottom}px`;
+      card.style.left = `${rect.left + rect.width / 2}px`;
+      card.style.transform = 'translateX(-50%)';
+    }
+  };
+
   return (
-    <Link 
-      to={to} 
+    <Link
+      to={to}
       className={`nav-item ${isActive ? "nav-item--active" : ""}`}
       style={{ "--hover-color": config.color }}
+      onMouseEnter={handleMouseEnter}
     >
       {children}
       {config.icon && (
